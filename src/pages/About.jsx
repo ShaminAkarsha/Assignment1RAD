@@ -37,7 +37,7 @@ export default function About() {
           </p>
         </Grid>
         <Grid xs={12}>
-          <h1 className="text-2xl font-bold text-lime-700 mx-auto border-t-2 border-b-2 w-fit">
+          <h1 className="text-2xl font-bold text-lime-700 mx-auto border-t-4 border-b-4 w-fit">
             Our Team
           </h1>
           <Grid container spacing={6} margin={5}  justifyContent="center" alignItems="center">

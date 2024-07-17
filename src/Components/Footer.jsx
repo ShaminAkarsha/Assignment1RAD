@@ -5,18 +5,18 @@ import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-
 
 export default function Footer() {
   return (
-    <FlowbiteFooter >
+    <FlowbiteFooter className='pt-1 bg-gray-100' >
       <div className="w-full">
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
-          <div>
-            <FlowbiteFooter.Brand className='ml-2'
+          <div className='content-center'>
+            <FlowbiteFooter.Brand className='ml-2' 
               href="/"
               src="logo.png"
               alt="PocketMoney Logo"
               name="PocketMoney"
             />
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
+          <div className="grid grid-cols-2 gap-8 m-2 sm:mt-4 sm:grid-cols-3 sm:gap-6 text-white">
             <div>
               <FlowbiteFooter.Title title="about" />
               <FlowbiteFooter.LinkGroup col>

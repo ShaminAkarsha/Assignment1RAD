@@ -1,8 +1,9 @@
-import { Box } from "@mui/material";
+import { Box} from "@mui/material";
 import Paper from "@mui/material/Paper";
 import React from "react";
 import { FaMessage, FaPhone } from "react-icons/fa6";
-import { BsEmojiWink } from "react-icons/bs";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 export default function CustomerSupport() {
   return (
@@ -58,10 +59,37 @@ export default function CustomerSupport() {
               Direct any difficulties you encounter within our platform. Also
               the sugessions are always welcome 😉
             </p>
-            <p className="text-cyan-600 font-bold mt-6">mailus@PocketMoney.lk</p>
+            <p className="text-cyan-600 font-bold mt-6">
+              mailus@PocketMoney.lk
+            </p>
           </div>
         </Paper>
       </Box>
+      <div className="mt-4 p-14 bg-gradient-to-b from-teal-100 ...">
+        <Box
+          component="form"
+          sx={{
+            "& > :not(style)": { m: 1, width:'100%' },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex flex-col w-1/3 gap-2">
+            <TextField id="username" label="Username" variant="standard" fullWidth />
+            <TextField id="email" label="Email" variant="standard" fullWidth />
+          </div>
+          <div className="flex w-2/3">
+            <TextField id="message" label="Message" multiline rows={4} fullWidth />
+          </div>
+        </div>
+        <div className="mt-4">
+          <Button variant="contained" type="submit">
+            Send
+          </Button>
+        </div>
+        </Box>
+      </div>
     </div>
   );
 }

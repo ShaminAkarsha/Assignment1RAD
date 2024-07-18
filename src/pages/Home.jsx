@@ -1,17 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaStar, FaHandSparkles } from "react-icons/fa";
 import { HiOutlineRocketLaunch } from "react-icons/hi2";
-import {Button} from 'flowbite-react'
+import { Button } from "flowbite-react";
 import SlidShow from "../Components/SlidShow";
 
 export default function Home() {
+  const [time, setTime] = useState(new Date().getHours());
+  const [greeting, setGreeting] = useState("Good Morning");
+
+  const getGreeting = (time) => {
+    if (time >= 12 && time < 16) {
+      return "Good Afternoon";
+    } else if (time >= 16) {
+      return "Good Evening";
+    } else {
+      return "Good Morning";
+    }
+  };
+
+  useEffect(() => {
+    console.log(time);
+    setGreeting(getGreeting(time));
+  }, [time]);
+
   return (
     <div>
       <div className="md:min-h-screen bg-slate-50 flex flex-col items-center justify-center p-6">
         <div className="flex flex-col md:flex-row gap-6 justify-center w-full max-w-6xl">
           <div className="flex flex-col gap-6 p-6 md:p-28 bg-slate-500 text-white rounded-lg w-full md:w-3/5">
-            <h1 className="text-3xl font-bold lg:text-6xl">Good Morning</h1>
+            <h1 className="text-3xl font-bold lg:text-6xl">{greeting}</h1>
             <p className="text-gray-200 text-xs sm:text-sm">
               Here you'll find a variety of jobs where you can accept to
               complete and get rewarded.
@@ -73,11 +91,15 @@ export default function Home() {
         </div>
       </div>
       <div className="flex sm:flex-row flex-col gap-10 justify-center mx-auto md:w-2/3  p-8">
-        <Button outline size="xl" gradientDuoTone="purpleToBlue">FInd the job fits for you</Button>
-        <Button outline size="xl" gradientDuoTone="cyanToBlue">Find someone to your Job</Button>
+        <Button outline size="xl" gradientDuoTone="purpleToBlue">
+          FInd the job fits for you
+        </Button>
+        <Button outline size="xl" gradientDuoTone="cyanToBlue">
+          Find someone to your Job
+        </Button>
       </div>
       <div>
-        <SlidShow/>
+        <SlidShow />
       </div>
     </div>
   );

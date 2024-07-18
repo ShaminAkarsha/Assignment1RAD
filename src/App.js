@@ -7,6 +7,9 @@ import JobInfo from "./pages/JobForm";
 import JobForm from "./pages/JobForm";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import SignIn from "./pages/SignIn";
+import FlaotingTime from "./Components/FlaotingTime";
+
 
 export default function App() {
   return (
@@ -19,7 +22,9 @@ export default function App() {
           <Route path="/cust-support" element={<CutomerSupport />} />
           <Route path="/job-info" element={<JobInfo />} />
           <Route path="/job-form" element={<JobForm />} />
+          <Route path="/sign-in" element={<SignIn/>} />
         </Routes>
+        <FlaotingTime/>
         <Footer />
       </BrowserRouter>
     </>

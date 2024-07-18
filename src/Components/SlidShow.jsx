@@ -16,7 +16,7 @@ export default function SlidShow() {
     <Carousel
       showArrows={false}
       showThumbs={false}
-      infiniteLoop={false}
+      infiniteLoop={8}
       showIndicators={false}
       useKeyboardArrows={true}
       autoPlay={true}

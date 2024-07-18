@@ -4,10 +4,12 @@ import { FaStar, FaHandSparkles } from "react-icons/fa";
 import { HiOutlineRocketLaunch } from "react-icons/hi2";
 import { Button } from "flowbite-react";
 import SlidShow from "../Components/SlidShow";
+import { useTheme } from "../Components/ThemeContext";
 
 export default function Home() {
   const [time, setTime] = useState(new Date().getHours());
   const [greeting, setGreeting] = useState("Good Morning");
+  const {theme, toggleTheme } = useTheme();
 
   const getGreeting = (time) => {
     if (time >= 12 && time < 16) {
@@ -26,7 +28,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className="md:min-h-screen bg-slate-50 flex flex-col items-center justify-center p-6">
+      <div className="md:min-h-screen bg-slate-50 flex flex-col items-center justify-center p-6 dark:bg-gray-900">
         <div className="flex flex-col md:flex-row gap-6 justify-center w-full max-w-6xl">
           <div className="flex flex-col gap-6 p-6 md:p-28 bg-slate-500 text-white rounded-lg w-full md:w-3/5">
             <h1 className="text-3xl font-bold lg:text-6xl">{greeting}</h1>
@@ -42,14 +44,18 @@ export default function Home() {
             </Link>
           </div>
           <div className="w-full flex items-center justify-center">
-            <img
+          {theme === "light" ? <img
               src="https://www.21kschool.com/lk/wp-content/uploads/sites/24/2022/09/How-Online-Education-is-Better-Than-Classroom-Education.jpg"
               alt="homepageImg"
-            />
+            /> : <img
+            src="https://img.freepik.com/free-vector/cartoon-working-day-scene-illustration_52683-62609.jpg?t=st=1721326374~exp=1721329974~hmac=55d1cd3f07a53a275153e2a7e5e87c08a68ca84ca91a8c7576f246d5591b80a3&w=740"
+            alt="homepageImg"
+          />}
+            
           </div>
         </div>
       </div>
-      <div className="bg-stone-200 w-full p-10">
+      <div className="bg-stone-200 w-full p-10 dark:bg-violet-950">
         <h1 className="text-3xl font-bold">
           Safe and secure hiring for Micro Jobs
         </h1>

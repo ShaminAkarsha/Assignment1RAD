@@ -3,13 +3,14 @@ import { Button, Navbar } from "flowbite-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaSun } from "react-icons/fa";
 import { useTheme } from "../Components/ThemeContext";
+import { FaMoon } from "react-icons/fa6";
 
 export default function Header() {
   const path = useLocation();
   const navigate = useNavigate();
   const {theme, toggleTheme } = useTheme();
   return (
-    <Navbar className="bg-green-100 dark:bg-green-900" fluid rounded>
+    <Navbar className="bg-green-100 dark:bg-green-800" fluid rounded>
       <Navbar.Brand href="/">
         <img src="logo.png" className="mr-3 h-6 sm:h-9" alt="Logo" />
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
@@ -17,9 +18,9 @@ export default function Header() {
         </span>
       </Navbar.Brand>
       <div className="flex md:order-2 gap-3">
-        <Button className="w-12 h-10 hidden sm:inline-block" color="gray" pill
+        <Button className="w-12 h-10 hidden sm:inline-block dark:text-black" color="gray" pill
         onClick={toggleTheme}>
-          <FaSun />
+          {theme === "light" ? <FaSun /> : <FaMoon />}
         </Button>
         <Button
           className="bg-gradient-to-r from-purple-500 to-pink-500"

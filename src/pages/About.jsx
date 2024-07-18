@@ -4,13 +4,13 @@ import Avatar from "@mui/material/Avatar";
 
 export default function About() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-scree">
       <Grid container spacing={6} margin={5}>
         <Grid borderRight={2} borderColor="gray" xs={12} md={4}>
           <img src="badge.png" className="h-52 w-fit mx-auto" />
         </Grid>
         <Grid xs={12} md={8}>
-          <p className="text-gray-500 text-lg text-justify">
+          <p className="text-gray-500 text-lg text-justify dark:text-gray-200">
             "Pocket Money" addresses the limited earning opportunities for
             students in Sri Lanka by offering a user-friendly platform where
             tasks with monetary rewards can be listed. Students and young adults
@@ -25,7 +25,7 @@ export default function About() {
           <h1 className="text-3xl font-bold text-lime-900 text-center">
             Background & Motivation
           </h1>
-          <p className="text-justify text-gray-500 p-8">
+          <p className="text-justify text-gray-500 p-8 dark:text-gray-200">
             As we all know, the transition to adulthood is increasingly complex,
             with young adults striving for financial independence (in Sri Lanka
             a 23 year old unfortunately,is still financially supported by their

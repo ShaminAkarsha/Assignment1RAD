@@ -21,7 +21,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/cust-support" element={<CutomerSupport />} />
           <Route path="/job-info" element={<JobInfo />} />
-          <Route path="/job-form" element={<JobForm />} />
+          <Route path="/jobs" element={<JobForm />} />
           <Route path="/sign-in" element={<SignIn/>} />
         </Routes>
         <FlaotingTime/>

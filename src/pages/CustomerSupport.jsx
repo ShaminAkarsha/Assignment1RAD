@@ -8,12 +8,12 @@ import Button from "@mui/material/Button";
 export default function CustomerSupport() {
   return (
     <div className="min-h-screen">
-      <div className="flex md:flex-row flex-col p-10 bg-slate-100 shadow-xl">
+      <div className="flex md:flex-row flex-col p-10 bg-slate-100 shadow-xl dark:bg-neutral-800">
         <div className="md:w-1/2 sm:text-left text-center m-2 sm:m-10 ">
-          <h2 className="font-sans text-4xl font-bold text-teal-800">
+          <h2 className="font-sans text-4xl font-bold text-teal-800 dark:text-yellow-50">
             Get in touch
           </h2>
-          <p className="text-gray-700 font-mono">
+          <p className="text-gray-700 font-mono dark:text-gray-100">
             Want to get in touch? We'd love to here from you, Here's how you can
             reach us...
           </p>
@@ -65,7 +65,7 @@ export default function CustomerSupport() {
           </div>
         </Paper>
       </Box>
-      <div className="mt-4 p-14 bg-gradient-to-b from-teal-100 ...">
+      <div className="mt-4 p-14 bg-gradient-to-b from-teal-100 ... dark:bg-slate-600">
         <Box
           component="form"
           sx={{

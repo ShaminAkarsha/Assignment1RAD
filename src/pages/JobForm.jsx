@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function JobForm() {
   return (
-    <div>JobForm</div>
+    <div className='min-h-screen'>JobForm</div>
   )
 }

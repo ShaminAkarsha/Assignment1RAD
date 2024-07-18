@@ -3,8 +3,30 @@ import TextField from "@mui/material/TextField";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 export default function SignIn() {
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      email: "",
+      password: "",
+      retypedpassword: "",
+    },
+    validationSchema: Yup.object({
+      username: Yup.string()
+        .required("Required")
+        .min(2, "Too Short!")
+        .max(20, "Only allowed 20 characters!"),
+      email: Yup.string().required("Required").email("Invalid email address"),
+      password: Yup.string().required("Required").min(5, "Too short"),
+      retypedpassword: Yup.string()
+        .oneOf([Yup.ref("password"), null], "Password must match")
+        .required("Required"),
+    }),
+    onSubmit: (values) => console.log(values),
+  });
   return (
     <div
       className="min-h-screen flex items-center justify-center"
@@ -36,37 +58,86 @@ export default function SignIn() {
             }}
             noValidate
             autoComplete="off"
+            onSubmit={formik.handleSubmit}
           >
             <div className="flex flex-col gap-4">
               <TextField
                 id="username"
+                name="username"
                 label="User name"
                 variant="outlined"
                 type="text"
+                error={
+                  formik.touched.username && formik.errors.username
+                    ? true
+                    : false
+                }
+                helperText={
+                  formik.touched.username && formik.errors.username
+                    ? formik.errors.username
+                    : null
+                }
                 required={true}
+                {...formik.getFieldProps("username")}
               />
               <TextField
                 id="email"
+                name="email"
                 label="Email"
                 variant="outlined"
                 type="email"
+                error={
+                  formik.touched.email && formik.errors.email ? true : false
+                }
+                helperText={
+                  formik.touched.email && formik.errors.email
+                    ? formik.errors.email
+                    : null
+                }
                 required={true}
+                {...formik.getFieldProps("email")}
               />
               <div className="flex flex-col">
                 <span>Password</span>
                 <TextField
                   id="password"
+                  name="password"
                   placeholder="****"
                   variant="standard"
+                  error={
+                    formik.touched.password && formik.errors.password
+                      ? true
+                      : false
+                  }
+                  helperText={
+                    formik.touched.password && formik.errors.password
+                      ? formik.errors.password
+                      : null
+                  }
                   type="password"
                   required={true}
+                  {...formik.getFieldProps("password")}
                 />
                 <span className="mt-3">Re-type password</span>
                 <TextField
-                  id="retype-password"
+                  id="retypedpassword"
+                  name="retypedpassword"
                   placeholder="****"
                   variant="standard"
+                  error={
+                    formik.touched.retypedpassword &&
+                    formik.errors.retypedpassword
+                      ? true
+                      : false
+                  }
+                  helperText={
+                    formik.touched.retypedpassword &&
+                    formik.errors.retypedpassword
+                      ? formik.errors.retypedpassword
+                      : null
+                  }
                   type="password"
+                  {...formik.getFieldProps("retypedpassword")}
                 />
               </div>
             </div>
